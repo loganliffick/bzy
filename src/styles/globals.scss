@@ -1,0 +1,97 @@
+:root {
+  --dark: #18171e;
+  --lite: #ebebeb;
+  --primary: #1820ff;
+
+  --body: var(--lite);
+  --text: var(--dark);
+
+  --bez: cubic-bezier(0, 0.5, 0, 1);
+  --line-height: calc(100% + 8px);
+  --sp1: 64px;
+}
+
+*,
+html,
+body,
+:before,
+:after {
+  box-sizing: border-box;
+  font-family: var(--newsreader), serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (prefers-reduced-motion) {
+    animation: none !important;
+    animation-play-state: paused;
+  }
+}
+
+body {
+  background: var(--body);
+  color: var(--text);
+}
+
+::selection {
+  background: var(--text);
+  color: var(--body);
+}
+
+main {
+  padding: 0 var(--sp1);
+}
+
+button {
+  background: transparent;
+  border: 0;
+  color: var(--gray-2);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  padding: 4px 8px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-position: from-font;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1 {
+  font-family: var(--lato), sans-serif;
+  font-size: 180px;
+  font-weight: 400;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--newsreader), serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --sp1: 24px;
+  }
+}
