@@ -4,7 +4,11 @@ import Head from 'next/head';
 // fonts
 import { Lato, Newsreader } from '@next/font/google';
 const lato = Lato({ subsets: ['latin'], weight: ['400'] });
-const newsreader = Newsreader({ subsets: ['latin'] });
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['italic'],
+});
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -36,7 +40,7 @@ const App = ({ Component, pageProps }) => {
           --newsreader: ${newsreader.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 };
