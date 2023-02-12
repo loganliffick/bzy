@@ -1,23 +1,43 @@
 :root {
-  --dark: #000000;
-  --lite: #fefefe;
-  --primary: #1820ff;
+  // colors
+  --gray-1: #000000;
+  --gray-2: #fefefe;
+  --gray-3: #fefefe;
+  --gray-4: #fefefe;
+  --gray-5: #fefefe;
+  --gray-6: #fefefe;
+  --white: #ffffff;
 
-  --body: var(--lite);
-  --text: var(--dark);
+  --primary-dark: #524fff;
+  --primary: #524fff;
+  --primary-lite: #524fff;
 
+  --secondary-dark: #85fff8;
+  --secondary: #85fff8;
+  --secondary-lite: #85fff8;
+
+  // text
+  --body: var(--primary);
+  --text: var(--white);
+
+  // spacing
+  --sp1: 64px;
+  --sp2: 80px;
+  --sp3: 160px;
+
+  // general
   --bez: cubic-bezier(0, 0.5, 0, 1);
   --lh: calc(100% + 8px);
-  --sp1: 64px;
 }
 
+// boilers
 *,
 html,
 body,
 :before,
 :after {
   box-sizing: border-box;
-  font-family: var(--lato), sans-serif;
+  font-family: var(--nunito), sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -34,25 +54,10 @@ body,
 body {
   background: var(--body);
   color: var(--text);
-  position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    background-color: var(--body);
-    background-image: url('../images/paper.png');
-    background-blend-mode: difference;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
-    z-index: -1;
-  }
 }
 
 ::selection {
-  background: var(--text);
+  background: var(--secondary);
   color: var(--body);
 }
 
@@ -85,20 +90,12 @@ a {
 }
 
 h1 {
-  font-family: var(--lato), sans-serif;
   font-size: 64px;
   font-weight: 400;
   line-height: var(--lh);
-
-  & span {
-    font-family: var(--newsreader), sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
 }
 
 h2 {
-  font-family: var(--newsreader), serif;
   font-size: 80px;
   font-weight: 400;
   line-height: var(--lh);
@@ -112,6 +109,16 @@ p {
 
 .title {
   &_large {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 64px;
+
+    span {
+      color: var(--secondary);
+      font-family: var(--pacifico), sans-serif;
+      font-size: 80px;
+      font-weight: 400;
+    }
   }
 
   &_small {
@@ -123,6 +130,7 @@ p {
   }
 }
 
+// responsivity
 @media (max-width: 600px) {
   :root {
     --sp1: 24px;
