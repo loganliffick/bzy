@@ -1,5 +1,5 @@
 {
-  "name": "cqrd",
+  "name": "bzy",
   "version": "0.1.0",
   "private": false,
   "scripts": {
@@ -16,6 +16,6 @@
     "sass": "^1.58.0"
   },
   "devDependencies": {
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.4"
   }
 }
