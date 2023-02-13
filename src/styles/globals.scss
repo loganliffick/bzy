@@ -1,16 +1,16 @@
 :root {
   // colors
-  --gray-1: #000000;
-  --gray-2: #fefefe;
-  --gray-3: #fefefe;
-  --gray-4: #fefefe;
-  --gray-5: #fefefe;
-  --gray-6: #fefefe;
+  --gray-1: #01003a;
+  --gray-2: #181658;
+  --gray-3: #454390;
+  --gray-4: #9a99d3;
+  --gray-5: #e7e7fc;
+  --gray-6: #f3f2fa;
   --white: #ffffff;
 
-  --primary-dark: #524fff;
+  --primary-dark: #3d3ad6;
   --primary: #524fff;
-  --primary-lite: #524fff;
+  --primary-lite: #8482ff;
 
   --secondary-dark: #85fff8;
   --secondary: #85fff8;
@@ -28,6 +28,11 @@
   // general
   --bez: cubic-bezier(0, 0.5, 0, 1);
   --lh: calc(100% + 8px);
+}
+
+::selection {
+  background: var(--primary-dark);
+  color: var(--secondary);
 }
 
 // boilers
@@ -56,27 +61,8 @@ body {
   color: var(--text);
 }
 
-::selection {
-  background: var(--secondary);
-  color: var(--body);
-}
-
 main {
   padding: 0 var(--sp1);
-}
-
-button {
-  background: transparent;
-  border: 0;
-  color: var(--gray-2);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 32px;
-  padding: 4px 8px;
-  text-decoration: none;
-  transition: 0.2s;
 }
 
 a {
@@ -89,28 +75,17 @@ a {
   }
 }
 
-h1 {
-  font-size: 64px;
-  font-weight: 400;
-  line-height: var(--lh);
-}
-
-h2 {
-  font-size: 80px;
-  font-weight: 400;
-  line-height: var(--lh);
-}
-
-p {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 22px;
-}
-
+// type
 .title {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: var(--lh);
+
   &_large {
     font-size: 72px;
     font-weight: 800;
+    letter-spacing: -2px;
     line-height: 64px;
 
     span {
@@ -118,16 +93,51 @@ p {
       font-family: var(--pacifico), sans-serif;
       font-size: 80px;
       font-weight: 400;
+      letter-spacing: 0px;
     }
   }
 
   &_small {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: var(--lh);
   }
 }
 
 .subhead {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: var(--lh);
+
   &_small {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: var(--lh);
   }
+}
+
+.caption {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+
+  &.small {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 22px;
+  }
+}
+
+.highlight {
+  font-family: var(--pacifico), sans-serif;
 }
 
 // responsivity
