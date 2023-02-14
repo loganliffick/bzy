@@ -1,0 +1,13 @@
+.wrapper {
+  text-align: center;
+
+  p {
+    margin-top: 12px;
+  }
+
+  @media (max-width: 840px) {
+    br {
+      display: none;
+    }
+  }
+}

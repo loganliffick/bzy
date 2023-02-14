@@ -1,6 +1,9 @@
 import '@/styles/globals.scss';
 import Head from 'next/head';
 
+import Footer from '@/components/footer/Footer';
+import Navigation from '@/components/navigation/Navigation';
+
 // fonts
 import { Nunito, Pacifico } from '@next/font/google';
 const nunito = Nunito({ subsets: ['latin'] });
@@ -47,7 +50,9 @@ const App = ({ Component, pageProps }) => {
           --pacifico: ${pacifico.style.fontFamily};
         }
       `}</style>
+      <Navigation />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 };

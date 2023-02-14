@@ -1,0 +1,17 @@
+.wrapper {
+  padding: 200px var(--sp1) 40px;
+  width: 100%;
+
+  > div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--full);
+    margin: 0 auto;
+
+    nav {
+      display: flex;
+      gap: 16px;
+    }
+  }
+}

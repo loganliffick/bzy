@@ -1,0 +1,40 @@
+.wrapper {
+  padding: 40px var(--sp1) 16px;
+  width: 100%;
+  z-index: 100;
+
+  div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--full);
+    margin: 0 auto;
+
+    .logo {
+      line-height: 0; //height fix
+    }
+
+    nav {
+      align-items: center;
+      display: flex;
+      gap: 24px;
+
+      a {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    div {
+      flex-wrap: wrap;
+      gap: 8px;
+
+      nav a {
+        display: none;
+      }
+    }
+  }
+}
