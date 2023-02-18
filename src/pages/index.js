@@ -13,9 +13,9 @@ const Index = () => {
   return (
     <main>
       <Hero>
-        <Test className="title_large">
-          Your <br /> business card
-        </Test>
+        <h1 className="title_large">
+          Your <span>new</span> <br /> business card
+        </h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipiscing elit massa mi.{' '}
           Aliquam in hendrerit urna.
