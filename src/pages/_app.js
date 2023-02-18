@@ -1,4 +1,6 @@
 import '@/styles/globals.scss';
+import '@/styles/index.scss';
+import '@/styles/terms.scss';
 import Head from 'next/head';
 
 import Footer from '@/components/footer/Footer';

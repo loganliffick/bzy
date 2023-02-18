@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 40px var(--sp1) 16px;
+  padding: 40px var(--padH) 16px;
   width: 100%;
   z-index: 100;
 
@@ -18,12 +18,6 @@
       align-items: center;
       display: flex;
       gap: 24px;
-
-      a {
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 24px;
-      }
     }
   }
 

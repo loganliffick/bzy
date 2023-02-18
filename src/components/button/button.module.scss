@@ -1,8 +1,4 @@
 .button {
-  cursor: pointer;
-  display: block;
-  max-width: max-content;
-
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
@@ -13,6 +9,9 @@
   box-shadow: inset 1px 1px 2px var(--white),
     inset -1px -1px 2px rgba(39, 0, 107, 0.4);
   color: var(--gray-1);
+  cursor: pointer;
+  display: block;
+  max-width: max-content;
   padding: 12px 24px;
   text-align: center;
 
@@ -21,4 +20,18 @@
   &:active {
     transform: scale(0.9) rotate(2deg);
   }
+}
+
+.link {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+
+  background: transparent;
+  border: none;
+  height: max-content;
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  max-width: max-content;
 }

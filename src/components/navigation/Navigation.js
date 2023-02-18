@@ -15,16 +15,25 @@ const Navigation = () => (
         <Logo stroke />
       </Link>
       <nav>
-        <Link href={'#features'} aria-label="Navigate to the Features section">
+        <Button
+          link
+          href={'/#features'}
+          ariaLabel="Navigate to the Features section"
+        >
           Features
-        </Link>
-        <Link href={'#useCases'} aria-label="Navigate to the Use cases section">
+        </Button>
+        <Button
+          link
+          href={'/#useCases'}
+          ariaLabel="Navigate to the Use cases section"
+        >
           Use Cases
-        </Link>
+        </Button>
         <Button
           onClick={() => {
             console.log('click');
           }}
+          ariaLabel="Join the waitlist"
         >
           Join the waitlist
         </Button>

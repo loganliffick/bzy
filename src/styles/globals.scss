@@ -27,18 +27,15 @@
   --reg: 640px;
 
   // spacing
-  --sp1: 64px;
-  --sp2: 80px;
-  --sp3: 160px;
+  --padH: 64px;
+  --padV: 80px;
 
   // general
   --bez: cubic-bezier(0, 0.5, 0, 1);
-  --lh: calc(100% + 8px);
 }
 
 ::selection {
-  background: var(--primary-dark);
-  color: var(--secondary);
+  background: RGBA(17, 14, 131, 0.3);
 }
 
 // boilers
@@ -67,14 +64,8 @@ body {
   color: var(--text);
 }
 
-// main {
-//   padding: 0 var(--sp1);
-// }
-
 a {
   color: inherit;
-  // text-decoration-thickness: 1px;
-  // text-underline-position: from-font;
   text-decoration: none;
 }
 
@@ -83,7 +74,7 @@ a {
   font-size: 56px;
   font-weight: 800;
   letter-spacing: -1px;
-  line-height: var(--lh);
+  line-height: 64px;
 
   &_large {
     font-size: 72px;
@@ -104,19 +95,19 @@ a {
     font-size: 36px;
     font-weight: 700;
     letter-spacing: -1px;
-    line-height: var(--lh);
+    line-height: 44px;
   }
 }
 
 .subhead {
   font-size: 24px;
-  font-weight: 600;
-  line-height: var(--lh);
+  font-weight: 700;
+  line-height: 32px;
 
   &_small {
     font-size: 20px;
-    font-weight: 500;
-    line-height: var(--lh);
+    font-weight: 600;
+    line-height: 28px;
   }
 }
 
@@ -147,6 +138,6 @@ p {
 // responsivity
 @media (max-width: 600px) {
   :root {
-    --sp1: 24px;
+    --padH: 24px;
   }
 }
