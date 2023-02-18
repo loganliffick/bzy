@@ -14,7 +14,7 @@ const Index = () => {
     <main>
       <Hero>
         <Test className="title_large">
-          Your <span>new</span> <br /> business card
+          Your <br /> business card
         </Test>
         <p>
           Lorem ipsum dolor sit amet consectetur adipiscing elit massa mi.{' '}
