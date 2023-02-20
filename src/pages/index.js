@@ -1,44 +1,13 @@
-import Button from '@/components/button/Button';
-import Headline from '@/components/headline/Headline';
-import Hero from '@/components/hero/Hero';
-import Section from '@/components/section/Section';
-import Features from '@/components/features/Features';
-import styled from 'styled-components';
+import Headline from '@/components/Headline';
+import Hero from '@/components/Hero';
+import Section from '@/components/Section';
+import FeatureGrid from '@/components/features/FeatureGrid';
+import UseCases from '@/components/UseCases';
 
-const Test = styled.h1`
-  font-family: monospace;
-`;
-
-const Index = () => {
+const Index = ({ statechanger }) => {
   return (
     <main>
-      <Hero>
-        <h1 className="title_large">
-          Your <span>new</span> <br /> business card
-        </h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit massa mi.{' '}
-          Aliquam in hendrerit urna.
-        </p>
-        <div className="flex">
-          <Button
-            onClick={() => {
-              'click';
-            }}
-            ariaLabel="Join the waitlist"
-          >
-            Join the waitlist
-          </Button>
-          <Button
-            link
-            href="mailto:info@bzy.so"
-            target
-            ariaLabel="email the Bzy team"
-          >
-            Get in touch
-          </Button>
-        </div>
-      </Hero>
+      <Hero statechanger={statechanger} />
       <Section>wallet interaction goes here</Section>
       <Section id="features" width="full">
         <Headline>
@@ -49,7 +18,7 @@ const Index = () => {
             Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.
           </p>
         </Headline>
-        <Features />
+        <FeatureGrid />
       </Section>
       <Section id="useCases">
         <Headline>
@@ -60,6 +29,7 @@ const Index = () => {
             Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.
           </p>
         </Headline>
+        <UseCases />
       </Section>
     </main>
   );

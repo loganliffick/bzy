@@ -1,10 +1,14 @@
 import '@/styles/globals.scss';
-import '@/styles/index.scss';
-import '@/styles/terms.scss';
 import Head from 'next/head';
+import { useState } from 'react';
 
-import Footer from '@/components/footer/Footer';
-import Navigation from '@/components/navigation/Navigation';
+// components
+import Footer from '@/components/Footer';
+import Navigation from '@/components/Navigation';
+import Modal from '@/components/Modal';
+
+// hooks
+import ModalContext from '@/hooks/modal-context';
 
 // fonts
 import { Nunito, Pacifico } from '@next/font/google';
@@ -15,8 +19,11 @@ const pacifico = Pacifico({
 });
 
 const App = ({ Component, pageProps }) => {
+  const [state, setState] = useState(false);
+  const value = { setState };
+
   return (
-    <>
+    <ModalContext.Provider value={value}>
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -52,10 +59,11 @@ const App = ({ Component, pageProps }) => {
           --pacifico: ${pacifico.style.fontFamily};
         }
       `}</style>
+      <Modal isActive={state} />
       <Navigation />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </ModalContext.Provider>
   );
 };
 

@@ -1,4 +1,6 @@
-.button {
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
@@ -20,18 +22,19 @@
   &:active {
     transform: scale(0.9) rotate(2deg);
   }
-}
+`;
 
-.link {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
+const Button = ({ onClick, href, external, children, ariaLabel, as }) => (
+  <StyledButton
+    onClick={onClick}
+    aria-label={ariaLabel}
+    target={external ? '_blank' : null}
+    rel={external ? 'noopener noreferrer' : null}
+    href={href}
+    as={as}
+  >
+    {children}
+  </StyledButton>
+);
 
-  background: transparent;
-  border: none;
-  height: max-content;
-  color: var(--white);
-  cursor: pointer;
-  display: block;
-  max-width: max-content;
-}
+export default Button;
