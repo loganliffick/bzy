@@ -2,9 +2,9 @@
   // colors
   --gray-1: #01003a;
   --gray-2: #181658;
-  --gray-3: #454390;
-  --gray-4: #9a99d3;
-  --gray-5: #e7e7fc;
+  --gray-3: #403f77;
+  --gray-4: #7170a5;
+  --gray-5: #c7c7e1;
   --gray-6: #f3f2fa;
   --white: #ffffff;
 
@@ -15,6 +15,8 @@
   --secondary-dark: #85fff8;
   --secondary: #85fff8;
   --secondary-lite: #85fff8;
+
+  --invalid: red;
 
   // text
   --body: var(--primary);
@@ -93,7 +95,7 @@ a {
 
   &_small {
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -1px;
     line-height: 44px;
   }
@@ -111,7 +113,9 @@ a {
   }
 }
 
-p {
+p,
+label,
+input {
   color: var(--text-lite);
   font-size: 18px;
   font-weight: 400;

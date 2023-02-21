@@ -20,7 +20,7 @@ const Index = ({ statechanger }) => {
         </Headline>
         <FeatureGrid />
       </Section>
-      <Section id="useCases">
+      <Section id="useCases" width="full">
         <Headline>
           <h2 className="title">Use cases</h2>
           <p>

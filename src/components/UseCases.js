@@ -8,7 +8,7 @@ const Container = styled.div`
   background: var(--primary-dark);
   /* display: block; */
   overflow: hidden;
-  width: var(--full);
+  width: 100%;
 
   grid-column: ${(props) => props.size || '1 / 5'};
   padding: ${(props) => props.padding || '64px'};
