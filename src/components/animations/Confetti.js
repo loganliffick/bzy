@@ -4,21 +4,22 @@ import Image from 'next/image';
 // assets
 import face from '@/images/hearty/modal-face.png';
 import mouth from '@/images/hearty/modal-mouth.png';
+import confetti from '@/images/hearty/confetti.svg';
 
-const populate = keyframes`
+const wrapperAnimation = keyframes`
   from {
     opacity: 0;
-    transform: translateY(40px) scale(0) rotate(40deg);
+    transform: translateY(80px) scale(0) rotate(40deg);
   }
 `;
 
 const Wrapper = styled.div`
-  width: 120px;
   height: 80px;
-  position: relative;
   margin: 0 auto;
+  position: relative;
+  width: 120px;
 
-  animation: ${populate} 0.4s cubic-bezier(0.5, -0.5, 0.3, 1.5) forwards;
+  animation: ${wrapperAnimation} 0.4s cubic-bezier(0, 0, 0, 1.7) forwards;
 `;
 
 const Face = styled(Image)`
@@ -27,7 +28,7 @@ const Face = styled(Image)`
   left: 0;
 `;
 
-const blow = keyframes`
+const mouthAnimation = keyframes`
   50% {
     transform: translateX(20px) scaleX(1.5) rotate(-10deg);
   }
@@ -43,15 +44,41 @@ const Mouth = styled(Image)`
 
   transform: translateX(-4px) scaleX(1) rotate(10deg);
   transform-origin: center left;
-
-  animation: ${blow} 0.6s 0.2s cubic-bezier(0.5, -0.5, 0.5, 1.5) forwards;
+  animation: ${mouthAnimation} 0.6s 0.17s cubic-bezier(0, -0.5, 0, 2) forwards;
 `;
 
-const Hearty = () => (
+const confettiAnimation = () => keyframes`
+  to {
+    transform: translatex(-576px);
+  }
+`;
+
+const ConfettiWrapper = styled.div`
+  position: absolute;
+  right: -96px;
+  top: 0;
+  height: 72px;
+  width: 72px;
+  overflow: hidden;
+  z-index: 100;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    animation: ${confettiAnimation} 0.5s 0.23s steps(8);
+  }
+`;
+
+const Confetti = () => (
   <Wrapper>
+    <ConfettiWrapper>
+      <Image src={confetti} alt="Hearty" height={72} />
+    </ConfettiWrapper>
     <Face src={face} alt="Hearty" width={120} />
-    <Mouth src={mouth} alt="Hearty" width={38} />
+    <Mouth src={mouth} alt="Hearty" width={40} />
   </Wrapper>
 );
 
-export default Hearty;
+export default Confetti;

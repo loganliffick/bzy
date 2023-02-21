@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 // components
-import Hearty from './animations/Confetti';
+import Confetti from './animations/Confetti';
 
 // hooks
 import ModalContext from '@/hooks/modal-context';
@@ -158,15 +158,24 @@ const StyledInput = styled.input`
 const Modal = ({ isActive }) => {
   const { setState } = useContext(ModalContext);
 
+  useEffect(() => {
+    const body = document.querySelector('body');
+
+    if (isActive) {
+      body.style.overscrollBehavior = 'none'; // stops scroll
+      body.style.overflow = 'hidden'; // stops scroll
+    } else {
+      body.style.overscrollBehavior = 'auto';
+      body.style.overflow = 'auto';
+    }
+  }, [{ isActive }]);
+
   return isActive ? (
     <Wrapper>
       <Overlay onClick={() => setState(false)} data-attribute={isActive} />
       <StyledForm data-attribute={isActive}>
-        {/* <p className="title">🎉</p> */}
-        <Hearty />
-        <p className="title_small">
-          Welcome to <br /> the club!
-        </p>
+        <Confetti />
+        <p className="title_small">Let's get Bzy</p>
         <Content>
           <div>
             <StyledInput
