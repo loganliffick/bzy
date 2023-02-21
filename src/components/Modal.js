@@ -1,6 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 import { useContext } from 'react';
 
+// components
+import Hearty from './animations/Confetti';
+
 // hooks
 import ModalContext from '@/hooks/modal-context';
 import Button from './Button';
@@ -159,7 +162,8 @@ const Modal = ({ isActive }) => {
     <Wrapper>
       <Overlay onClick={() => setState(false)} data-attribute={isActive} />
       <StyledForm data-attribute={isActive}>
-        <p className="title">🎉</p>
+        {/* <p className="title">🎉</p> */}
+        <Hearty />
         <p className="title_small">
           Welcome to <br /> the club!
         </p>
