@@ -41,10 +41,6 @@ const Overlay = styled.div`
   backdrop-filter: blur(3px);
 
   animation: ${overlayAnimation} 0.3s ease forwards;
-
-  @media (pointer: none) {
-    backdrop-filter: none; // iOS fix
-  }
 `;
 
 const formAnimation = keyframes`
@@ -221,7 +217,7 @@ const Modal = ({ isActive }) => {
           as="input"
           type="submit"
           value="Join the waitlist"
-          style={{ height: '56px' }}
+          style={{ height: '56px', transform: 'translateZ(0)' }}
         />
       </StyledForm>
     </Wrapper>
