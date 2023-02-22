@@ -75,6 +75,8 @@ const CardContainer = styled.div`
 
   @media (max-width: 1004px) {
     justify-content: center;
+    min-width: auto;
+    width: 100%;
   }
 `;
 
@@ -110,9 +112,7 @@ const Hero = () => {
             </TextLink>
           </CTAContainer>
         </Content>
-        <CardContainer>
-          <Card />
-        </CardContainer>
+        <CardContainer>{<Card />}</CardContainer>
       </ContentWrapper>
     </Wrapper>
   );

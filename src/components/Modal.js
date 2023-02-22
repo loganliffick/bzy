@@ -2,21 +2,25 @@ import styled, { keyframes } from 'styled-components';
 import { useContext, useEffect } from 'react';
 
 // components
+import Button from './Button';
 import Confetti from './animations/Confetti';
 
 // hooks
 import ModalContext from '@/hooks/modal-context';
-import Button from './Button';
 
 const Wrapper = styled.div`
   position: fixed;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   z-index: 100;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    align-items: flex-start; // iOS fix
+  }
 `;
 
 const overlayAnimation = keyframes`
@@ -37,6 +41,10 @@ const Overlay = styled.div`
   backdrop-filter: blur(3px);
 
   animation: ${overlayAnimation} 0.3s ease forwards;
+
+  @media (pointer: none) {
+    backdrop-filter: none; // iOS fix
+  }
 `;
 
 const formAnimation = keyframes`
@@ -52,7 +60,7 @@ const formAnimation = keyframes`
 
 const StyledForm = styled.form`
   width: 400px;
-  margin: 0 var(--padH);
+  margin: 24px var(--padH);
 
   background: var(--white);
   border-radius: 24px;
@@ -213,6 +221,7 @@ const Modal = ({ isActive }) => {
           as="input"
           type="submit"
           value="Join the waitlist"
+          style={{ height: '56px' }}
         />
       </StyledForm>
     </Wrapper>

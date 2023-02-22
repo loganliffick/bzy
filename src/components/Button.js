@@ -39,6 +39,7 @@ const Button = ({
   fullWidth,
   type,
   value,
+  style,
 }) => (
   <StyledButton
     onClick={onClick}
@@ -51,6 +52,7 @@ const Button = ({
     fullWidth={fullWidth}
     type={type}
     value={value}
+    style={style}
   >
     {children}
   </StyledButton>
