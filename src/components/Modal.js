@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 480px) {
+  @media (hover: none) {
     align-items: flex-start; // iOS fix
   }
 `;
@@ -157,9 +157,15 @@ const StyledInput = styled.input`
       }
     }
   }
+
+  @media (hover: none) {
+    &:focus {
+      outline: none;
+    }
+  }
 `;
 
-const Modal = ({ isActive }) => {
+const Modal = ({ isActive, isMobile }) => {
   const { setState } = useContext(ModalContext);
 
   useEffect(() => {
@@ -183,7 +189,7 @@ const Modal = ({ isActive }) => {
         <Content>
           <div>
             <StyledInput
-              autoFocus
+              autoFocus={isMobile ? '' : 'autoFocus'}
               type="text"
               name="name"
               id="name"

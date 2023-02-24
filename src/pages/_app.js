@@ -9,6 +9,7 @@ import Modal from '@/components/Modal';
 
 // hooks
 import ModalContext from '@/hooks/modal-context';
+import useCheckMobileScreen from '@/hooks/checkMobile';
 
 // fonts
 import { Nunito, Pacifico } from '@next/font/google';
@@ -21,6 +22,8 @@ const pacifico = Pacifico({
 const App = ({ Component, pageProps }) => {
   const [state, setState] = useState(false);
   const value = { setState };
+
+  const isMobile = useCheckMobileScreen();
 
   return (
     <ModalContext.Provider value={value}>
@@ -59,7 +62,7 @@ const App = ({ Component, pageProps }) => {
           --pacifico: ${pacifico.style.fontFamily};
         }
       `}</style>
-      <Modal isActive={state} />
+      <Modal isActive={state} isMobile={isMobile} />
       <Navigation />
       <Component {...pageProps} />
       <Footer />
