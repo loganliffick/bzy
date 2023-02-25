@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 // components
 import Card from './Card';
@@ -51,25 +51,43 @@ const CTAContainer = styled.div`
   }
 `;
 
-const CardContainer = styled.div`
+const CardWrapper = styled.div`
+  align-items: center;
+  /* background: rgba(255, 255, 255, 0.05); // for testing */
+  display: flex;
   flex-grow: 1;
   height: 400px;
+  justify-content: flex-end;
   max-width: 100%;
   min-width: 416px;
-  /* background: rgba(255, 255, 255, 0.05); */
 
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  > :first-child {
+  // card
+  > div {
     transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    // glow
+    > :first-child {
+      border-radius: inherit;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      background: radial-gradient(
+        circle at 50% -20%,
+        rgba(255, 255, 255, 0.13),
+        rgba(0, 0, 0, 0.06)
+      );
+    }
   }
 
-  &:hover {
-    > :first-child {
-      box-shadow: 0px 20px 50px -5px rgba(39, 0, 107, 0.4);
-      transform: translateY(-20px);
+  @media (hover: hover) {
+    &:hover {
+      > div {
+        box-shadow: 0px 20px 50px -5px rgba(39, 0, 107, 0.4);
+        transform: scale3d(1.07, 1.07, 1.07);
+      }
     }
   }
 
@@ -82,6 +100,67 @@ const CardContainer = styled.div`
 
 const Hero = () => {
   const { setState } = useContext(ModalContext);
+
+  const cardRef = useRef(null);
+  const glowRef = useRef(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const glow = glowRef.current;
+    let bounds;
+
+    const rotateToMouse = (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const leftX = mouseX - bounds.x;
+      const topY = mouseY - bounds.y;
+      const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2,
+      };
+      const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+
+      card.style.transform = `
+        scale3d(1.07, 1.07, 1.07)
+        rotate3d(
+          ${center.y / 100},
+          ${-center.x / 100},
+          0,
+          ${Math.log(distance) * 2}deg
+        )
+      `;
+
+      glow.style.background = `
+        radial-gradient(
+          circle at
+          ${center.x * 2 + bounds.width / 2}px
+          ${center.y * 2 + bounds.height / 2}px,
+          rgba(255, 255, 255, 0.5),
+          rgba(0, 0, 0, 0.06)
+        )
+      `;
+    };
+
+    const handleMouseEnter = () => {
+      bounds = card.getBoundingClientRect();
+      document.addEventListener('mousemove', rotateToMouse);
+    };
+
+    const handleMouseLeave = () => {
+      document.removeEventListener('mousemove', rotateToMouse);
+      card.style.transform = '';
+      card.style.background = '';
+    };
+
+    card.addEventListener('mouseenter', handleMouseEnter);
+    card.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      card.removeEventListener('mouseenter', handleMouseEnter);
+      card.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mousemove', rotateToMouse);
+    };
+  }, []);
 
   return (
     <Wrapper>
@@ -112,7 +191,11 @@ const Hero = () => {
             </TextLink>
           </CTAContainer>
         </Content>
-        <CardContainer>{<Card />}</CardContainer>
+        <CardWrapper>
+          <Card innerRef={cardRef}>
+            <div ref={glowRef} />
+          </Card>
+        </CardWrapper>
       </ContentWrapper>
     </Wrapper>
   );
