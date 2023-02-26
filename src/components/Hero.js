@@ -63,22 +63,22 @@ const CardWrapper = styled.div`
 
   // card
   > div {
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+    position: relative;
 
     // glow
     > :first-child {
+      background: radial-gradient(
+        circle at 50% -20%,
+        rgba(255, 255, 255, 0.13),
+        rgba(0, 0, 0, 0.06)
+      );
       border-radius: inherit;
       height: 100%;
       left: 0;
       position: absolute;
       top: 0;
       width: 100%;
-
-      background: radial-gradient(
-        circle at 50% -20%,
-        rgba(255, 255, 255, 0.13),
-        rgba(0, 0, 0, 0.06)
-      );
     }
   }
 
@@ -104,6 +104,7 @@ const Hero = () => {
   const cardRef = useRef(null);
   const glowRef = useRef(null);
 
+  // 3d hover
   useEffect(() => {
     const card = cardRef.current;
     const glow = glowRef.current;
@@ -159,6 +160,34 @@ const Hero = () => {
       card.removeEventListener('mouseenter', handleMouseEnter);
       card.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mousemove', rotateToMouse);
+    };
+  }, []);
+
+  // scroll effect
+  const handleScroll = () => {
+    const card = cardRef.current;
+    const position = window.scrollY;
+
+    if (position > 200) {
+      card.style.transform = `rotate(-90deg)`;
+    } else {
+      card.style.transform = ``;
+    }
+    if (position > 450) {
+      card.style.transform = `translateY(680px) rotate(-90deg)`;
+      card.style.pointerEvents = 'none';
+      card.style.boxShadow = '0px 10px 10px -5px rgba(39, 0, 107, 0.15)';
+    } else {
+      card.style.pointerEvents = '';
+      card.style.boxShadow = '';
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

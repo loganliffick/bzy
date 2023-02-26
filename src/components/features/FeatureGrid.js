@@ -14,7 +14,6 @@ const Grid = styled.div`
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
-    gap: 32px;
   }
 `;
 
