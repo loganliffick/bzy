@@ -12,7 +12,7 @@ import ModalContext from '@/hooks/modal-context';
 import useCheckMobileScreen from '@/hooks/checkMobile';
 
 // fonts
-import { Nunito, Pacifico } from '@next/font/google';
+import { Nunito, Pacifico } from 'next/font/google';
 const nunito = Nunito({ subsets: ['latin'] });
 const pacifico = Pacifico({
   subsets: ['latin'],

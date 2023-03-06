@@ -35,6 +35,15 @@ const Nav = styled.nav`
   margin-top: 40px;
   flex-wrap: wrap;
   justify-content: center;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+
+    a,
+    button {
+      margin: 0 auto;
+    }
+  }
 `;
 
 const Footer = () => {
@@ -56,6 +65,9 @@ const Footer = () => {
           </TextLink>
           <TextLink external href="mailto:info@bzy.so">
             Get in touch
+          </TextLink>
+          <TextLink external href="https://twitter.com/letsgetbzy">
+            Twitter
           </TextLink>
           <TextLink href="/terms">Terms</TextLink>
         </Nav>

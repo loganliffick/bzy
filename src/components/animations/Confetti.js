@@ -2,8 +2,8 @@ import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 
 // assets
-import face from '@/images/hearty/modal-face.png';
-import mouth from '@/images/hearty/modal-mouth.png';
+import face from '@/images/hearty/modal-face.webp';
+import mouth from '@/images/hearty/modal-mouth.webp';
 import confetti from '@/images/hearty/confetti.svg';
 
 const wrapperAnimation = keyframes`

@@ -5,7 +5,7 @@ import Image from 'next/image';
 // assets
 import front from '@/images/wallet/front.svg';
 import back from '@/images/wallet/back.svg';
-import hearty from '@/images/hearty/hearty-smile.png';
+import hearty from '@/images/hearty/hearty-smile.webp';
 
 const Wrapper = styled.section`
   padding: var(--padV) var(--padH);
@@ -53,6 +53,8 @@ const Content = styled.div`
 
   p {
     position: absolute;
+    transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+    opacity: 0;
 
     &:nth-of-type(1) {
       top: 100px;
@@ -76,6 +78,12 @@ const Content = styled.div`
     position: absolute;
     top: 400px;
     right: 0;
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+    opacity: 0;
+
+    &:hover {
+      transform: rotate(-12deg) !important;
+    }
   }
 `;
 
@@ -88,8 +96,8 @@ const WalletWrapper = styled.div`
   height: 600px;
 
   @media (max-width: 400px) {
-    width: 100%;
     overflow: hidden;
+    width: 100%;
   }
 `;
 
@@ -131,43 +139,69 @@ const Wallet = styled.div`
 `;
 
 const HeroAfter = () => {
-  // const frontRef = useRef(null);
-  // const backRef = useRef(null);
-  // const contentRef = useRef(null);
+  const weRef = useRef(null);
+  const thinkRef = useRef(null);
+  const youllRef = useRef(null);
+  const loveRef = useRef(null);
+  const itRef = useRef(null);
 
   // scroll effect
-  // const handleScroll = () => {
-  //   const front = frontRef.current;
-  //   const back = backRef.current;
-  //   const position = window.scrollY;
+  const handleScroll = () => {
+    const we = weRef.current;
+    const think = thinkRef.current;
+    const youll = youllRef.current;
+    const love = loveRef.current;
+    const it = itRef.current;
+    const position = window.scrollY;
 
-  //   if (position > 350) {
-  //     front.style.transform = `translateY(-300px)`;
-  //     back.style.transform = `translateY(-300px)`;
-  //   } else {
-  //     front.style.transform = ``;
-  //     back.style.transform = ``;
-  //   }
-  // };
+    if (position > 400) {
+      we.style.transform = 'scale(1) rotate(-6deg)';
+      we.style.opacity = '1';
+    }
+    if (position > 450) {
+      think.style.transform = 'scale(1) rotate(6deg)';
+      think.style.opacity = '1';
+    }
+    if (position > 500) {
+      youll.style.transform = 'scale(1) rotate(-6deg)';
+      youll.style.opacity = '1';
+    }
+    if (position > 550) {
+      love.style.transform = 'scale(1) rotate(12deg)';
+      love.style.opacity = '1';
+    }
+    if (position > 600) {
+      it.style.transform = 'scale(1) rotate(6deg)';
+      it.style.opacity = '1';
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll, { passive: true });
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <Wrapper>
       <ContentWrapper>
         <InnerContentWrapper>
           <Content>
-            <p className="title highlight">We</p>
-            <p className="title highlight">think</p>
-            <p className="title highlight">you'll</p>
-            <Image src={hearty} alt="Hearty" height={104} />
-            <p className="title highlight">it</p>
+            <p className="title highlight" ref={weRef}>
+              We
+            </p>
+            <p className="title highlight" ref={thinkRef}>
+              think
+            </p>
+            <p className="title highlight" ref={youllRef}>
+              you'll
+            </p>
+            <Image src={hearty} alt="Hearty" height={104} ref={loveRef} />
+            <p className="title highlight" ref={itRef}>
+              it
+            </p>
           </Content>
         </InnerContentWrapper>
         <WalletWrapper>

@@ -9,6 +9,9 @@ import TextLink from './TextLink';
 // hooks
 import ModalContext from '@/hooks/modal-context';
 
+// assets
+import whip from '@/images/cards/whip.svg';
+
 const Wrapper = styled.section`
   padding: var(--padV) var(--padH);
   width: 100%;
@@ -221,7 +224,12 @@ const Hero = () => {
           </CTAContainer>
         </Content>
         <CardWrapper>
-          <Card innerRef={cardRef}>
+          <Card
+            innerRef={cardRef}
+            color="var(--secondary-dark)"
+            background="var(--secondary-lite)"
+            graphic={whip.src}
+          >
             <div ref={glowRef} />
           </Card>
         </CardWrapper>
